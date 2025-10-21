@@ -45,3 +45,42 @@ model.compile(
     loss="categorical_crossentropy",
     metrics=["accuracy"]
 )
+
+
+### ✅ Advantages of Feature Extraction
+
+| Advantage | Description |
+|------------|-------------|
+| ⚡ **Fast training** | Training is quick because most layers are frozen. |
+| 🧠 **Efficient for small datasets** | Works well even with limited data. |
+| 🧩 **Leverages pre-trained knowledge** | Uses general features (edges, textures, shapes) learned from ImageNet. |
+| 📉 **Reduces overfitting risk** | Fewer trainable parameters lower overfitting chances. |
+
+### ⚠️ Limitations
+- The model may not learn very specific patterns in your dataset.  
+- Features remain generic and not fully adapted to your data.
+
+---
+
+## 🔧 2. Fine-Tuning
+
+After initial training with **Feature Extraction**, we **unfreeze some of the top layers** of the base model and **train them again** with a smaller learning rate.  
+
+This allows the model to **adjust its pre-trained weights** to better fit the new dataset and learn more specific features related to your task.
+
+### 🧩 Example Code
+
+```python
+# Unfreeze the top layers of the base model
+base_model.trainable = True
+
+# Keep most layers frozen
+for layer in base_model.layers[:-20]:
+    layer.trainable = False
+
+# Re-compile with a low learning rate
+model.compile(
+    optimizer=tf.keras.optimizers.Adam(learning_rate=1e-5),
+    loss="categorical_crossentropy",
+    metrics=["accuracy"]
+)
