@@ -1,4 +1,4 @@
-# 🧠 CNN with Transfer Learning — Feature Extraction vs Fine-Tuning
+# CNN with Transfer Learning — Feature Extraction vs Fine-Tuning
 
 This project explains how to apply **Transfer Learning** using a **Convolutional Neural Network (CNN)** for image classification.
 
