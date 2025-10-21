@@ -3,26 +3,26 @@
 This project demonstrates how to apply **Transfer Learning** using a **Convolutional Neural Network (CNN)** for image classification.  
 We explore two main strategies:
 
-1. **Feature Extraction**  
+1. **Feature Extraction**
 2. **Fine-Tuning**
 
 ---
 
 ## 📘 What is Transfer Learning?
 
-**Transfer Learning** allows us to reuse a **pre-trained model** (such as EfficientNet, ResNet, or MobileNet) that was trained on a large dataset like *ImageNet* and adapt it to a new, smaller dataset.
+**Transfer Learning** allows us to reuse a **pre-trained model** (such as EfficientNet, ResNet, or MobileNet) that was trained on a large dataset like *ImageNet*, and adapt it to a new, smaller dataset.
 
-Example use case:  
+👉 **Example use case:**  
 Classifying 10 food categories using only a few thousand images.
 
 ---
 
 ## ⚙️ 1. Feature Extraction
 
-In this approach, we use the **pre-trained CNN as a fixed feature extractor**.  
-We freeze its convolutional layers and add a new classifier on top.
+In this approach, we use the pre-trained CNN as a **fixed feature extractor**.  
+We **freeze** its convolutional layers and add a new classifier on top.
 
-### 🔍 Code Example
+### 🧩 Code Example
 ```python
 base_model = tf.keras.applications.EfficientNetB0(include_top=False, weights="imagenet")
 base_model.trainable = False  # Freeze all convolutional layers
