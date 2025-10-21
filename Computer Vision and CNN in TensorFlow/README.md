@@ -45,7 +45,7 @@ model.compile(
     loss="categorical_crossentropy",
     metrics=["accuracy"]
 )
-
+```
 
 ### ✅ Advantages of Feature Extraction
 
